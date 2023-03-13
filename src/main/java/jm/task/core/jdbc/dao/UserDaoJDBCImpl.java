@@ -52,7 +52,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public void saveUser(String name, String lastName, byte age) {
         try (Statement statement = connection.createStatement()) {
-            statement.execute(String.format("INSERT INTO Users(name, lastName, age) VALUES('%s', '%s', %d );", name, lastName, age));
+            statement.execute(String.format("INSERT INTO users(name, lastName, age) VALUES('%s', '%s', %d );", name, lastName, age));
             System.out.printf("User с именем – %s добавлен в базу данных \n", name);
             connection.commit();
         } catch (SQLException e) {
