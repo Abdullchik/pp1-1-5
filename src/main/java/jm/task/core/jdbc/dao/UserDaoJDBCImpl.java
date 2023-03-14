@@ -82,7 +82,7 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public List<User> getAllUsers() {
-        List<User> userList= new ArrayList<>();
+        List<User> userList = new ArrayList<>();
         try (Statement statement = connection.createStatement()) {
             ResultSet set = statement.executeQuery("SELECT * FROM Users");
             while (set.next()) {
@@ -105,7 +105,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public void cleanUsersTable() {
         try (Statement statement = connection.createStatement()) {
-            statement.execute("DELETE FROM users;");
+            statement.execute("DELETE FROM users");
             connection.commit();
         } catch (SQLException e) {
             throw new RuntimeException(e);
